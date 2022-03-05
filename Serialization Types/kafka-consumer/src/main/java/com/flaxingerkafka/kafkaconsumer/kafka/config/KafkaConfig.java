@@ -24,11 +24,11 @@ public class KafkaConfig {
 
     @Bean
     public ConsumerFactory<String, Message> consumerFactory() {
+        // Message.class로 매핑
         final JsonDeserializer<Message> jsonDeserializer = new JsonDeserializer<>(Message.class, false);
         jsonDeserializer.addTrustedPackages("*");
         return new DefaultKafkaConsumerFactory<>(
                 kafkaProperties.buildConsumerProperties(), new StringDeserializer(), jsonDeserializer
-//                kafkaProperties.buildConsumerProperties(), new StringDeserializer(), new JsonDeserializer<>(Message.class, false)
         );
     }
 
