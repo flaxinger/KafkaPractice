@@ -1,0 +1,10 @@
+server:
+  port: 8088
+spring:
+  kafka:
+    consumer:
+      group-id: test-group
+      auto-offset-reset: earliest
+flaxinger-kafka:
+  topic-name: test-topic
+  messages-per-request: 10
